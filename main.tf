@@ -28,6 +28,13 @@ data "aws_ami" "amazon-linux-2" {
   }
 }
 #########################################################
+data "template_file" "userdata" {
+  template = file("${abspath(path.module)}/userdata.sh")
+  vars = {
+    server-name = var.server-name
+  }
+}
+##########################################################
 resource "aws_instance" "tfmyec2" {
   ami                    = data.aws_ami.amazon-linux-2.id
   instance_type          = var.instance_type
