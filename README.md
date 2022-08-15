@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 module "docker_instance" {
-    source = "<rknktm>/docker-instance/aws"
+    source = "rknktm/docker-instance/aws"
     key_name = "clarusway"
 }
 ```
